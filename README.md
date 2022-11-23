@@ -56,8 +56,8 @@ Berita terbaru terkait kesehatan <br>
 Jawaban dari pertanyaan yang sering ditanyakan oleh pengguna <br>
 
 ### Alur Pengintegrasian dengan Web Service <br>
-Menambahkan dependency `http` ke proyek untuk bertukar data melalui HTTP request <br>
-Membuat model sesuai dengan respons dari data yang berasal dari web service <br>
-Melakukan pengambilan data pada suatu web service dengan menggunakan dependensi http get <br>
-Mengkonversikan objek yang sudah didapatkan dari web service ke model yang telah dibuat sebelumnya <br>
-Menampilkan data yang terlah berhasil dikonversi ke aplikasi menggunakan `FutureBuilder` <br>
+1. Menambahkan dependency `http` ke proyek untuk bertukar data melalui HTTP request <br>
+2. Membuat model sesuai dengan respons dari data yang berasal dari web service <br>
+3. Melakukan pengambilan data pada suatu web service dengan menggunakan dependensi http get <br>
+4. Mengkonversikan objek yang sudah didapatkan dari web service ke model yang telah dibuat sebelumnya <br>
+5. Menampilkan data yang terlah berhasil dikonversi ke aplikasi menggunakan `FutureBuilder` <br>
