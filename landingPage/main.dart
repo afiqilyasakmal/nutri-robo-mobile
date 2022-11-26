@@ -1,4 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'drawer.dart';
+
+final List<String> imgList = [
+  'assets/nutriroboImage.jpg',
+  'assets/trackerImage.jpg',
+  'assets/targetHealthImage.jpg',
+  'assets/blogImage.jpg',
+  'assets/faqImage.jpg'
+];
+
+final List<String> carouselCaption = [
+  'Nutri-robo',
+  'Tracker',
+  'Target Health',
+  'Blog',
+  'FAQ'
+];
 
 void main() {
   runApp(const MyApp());
@@ -87,12 +105,66 @@ class _MyHomePageState extends State<MyHomePage> {
 
           ),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-        ),
-      ),
+      endDrawer: MyDrawer(),
+      body: CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 16/9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
+              ),
+              items: imageSliders
+            )
     );
   }
 }
+
+final List<Widget> 
+    imageSliders = imgList
+    .map((item) => Container(
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(200, 0, 0, 0),
+                              Color.fromARGB(0, 0, 0, 0)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                        child: Text(
+                          '${carouselCaption[imgList.indexOf(item)]}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ))
+    .toList();
