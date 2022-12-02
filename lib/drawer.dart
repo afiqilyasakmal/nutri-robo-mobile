@@ -19,8 +19,9 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text("Home Page"),
             onTap: () {
-              Navigator.pop(
+              Navigator.pushReplacement(
                 context,
+                MaterialPageRoute(builder: (context) => const MyApp()),
               );
             },
           ),
@@ -53,10 +54,8 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('FAQ'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyfaqPage())
-              );
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const MyfaqPage()));
             },
           ),
         ],
