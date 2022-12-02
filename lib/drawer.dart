@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutrirobo/main.dart';
 import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
+import 'package:nutrirobo/faq/page/faq_main_page.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -52,8 +53,9 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('FAQ'),
             onTap: () {
-              Navigator.pop(
+              Navigator.pushReplacement(
                 context,
+                MaterialPageRoute(builder: (context) => const MyfaqPage())
               );
             },
           ),
