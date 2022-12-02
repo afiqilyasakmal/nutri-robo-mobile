@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nutrirobo/page/fetchFeedbackItems.dart';
-import 'page/drawer.dart';
+import 'package:nutrirobo/drawer.dart';
 
 final List<String> imgList = [
   'assets/nutriroboImage.jpg',
@@ -85,7 +85,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
