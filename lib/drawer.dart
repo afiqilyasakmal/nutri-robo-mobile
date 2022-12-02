@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'package:nutrirobo/main.dart';
+import 'package:nutrirobo/page/tracker_main_page.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -25,8 +26,9 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text("Tracker"),
             onTap: () {
-              Navigator.pop(
+              Navigator.push(
                 context,
+                MaterialPageRoute(builder: (context) => const MyTrackerPage()),
               );
             },
           ),
