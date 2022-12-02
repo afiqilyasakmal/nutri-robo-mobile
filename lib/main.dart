@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'drawer.dart';
+import 'package:nutrirobo/drawer.dart';
 
 final List<String> imgList = [
   'assets/nutriroboImage.jpg',
@@ -91,43 +91,39 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Row(
-              children: [
-                  Image.asset(
-                 'assets/logo.jpg',
-                  height: 70,
-                  width: 150,
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Row(
+            children: [
+              Image.asset(
+                'assets/logo.jpg',
+                height: 70,
+                width: 150,
               ),
             ],
-
           ),
-      ),
-      endDrawer: MyDrawer(),
-      body: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 16/9,
-                viewportFraction: 0.8,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-              ),
-              items: imageSliders
-            )
-    );
+        ),
+        endDrawer: MyDrawer(),
+        body: CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.8,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
+            items: imageSliders));
   }
 }
 
-final List<Widget> 
-    imageSliders = imgList
+final List<Widget> imageSliders = imgList
     .map((item) => Container(
           child: Container(
             margin: EdgeInsets.all(5.0),
