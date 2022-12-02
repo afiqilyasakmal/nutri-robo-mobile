@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutrirobo/main.dart';
-import 'package:nutrirobo/tracker_main_page.dart';
+import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
