@@ -17,11 +17,11 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: [
           ListTile(
+            leading: const Icon(Icons.home),
             title: const Text("Home Page"),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.pop(
                 context,
-                MaterialPageRoute(builder: (context) => const MyApp()),
               );
             },
           ),
