@@ -37,6 +37,8 @@ dependencies:
   carousel_slider: ^4.1.1
   intl: ^0.15.7
   http: ^0.13.5
+  provider: ^6.0.4
+  pbp_django_auth: ^0.2.3
   pbp_django_auth: ^0.2.3
   provider: ^6.0.4
 
@@ -71,6 +73,7 @@ flutter:
     - assets/faqImage.jpg
     - assets/blogImage.jpg
     - assets/cardImage.jpg
+    - assets/introduction.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -83,10 +86,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Aubrey
+      fonts:
+        - asset: assets/aubrey.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

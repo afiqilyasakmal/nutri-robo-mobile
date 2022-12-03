@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nutrirobo/landingPage/page/fetchFeedbackItems.dart';
 import 'package:nutrirobo/drawer.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'landingPage/page/login.dart';
 
 final List<String> imgList = [
   'assets/nutriroboImage.jpg',
@@ -44,23 +47,31 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: white,
-        scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
-      ),
-      home: const MyHomePage(title: 'NUTRI-ROBO'),
-    );
+    return Provider(
+        create: (_) {
+          CookieRequest request = CookieRequest();
+          return request;
+        },
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            // This is the theme of your application.
+            //
+            // Try running your application with "flutter run". You'll see the
+            // application has a blue toolbar. Then, without quitting the app, try
+            // changing the primarySwatch below to Colors.green and then invoke
+            // "hot reload" (press "r" in the console where you ran "flutter run",
+            // or simply save your changes to "hot reload" in a Flutter IDE).
+            // Notice that the counter didn't reset back to zero; the application
+            // is not restarted.
+            primarySwatch: white,
+            scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
+          ),
+          home: const MyHomePage(title: 'NUTRI-ROBO'),
+          routes: {
+            "/login": (BuildContext context) => const LoginPage(),
+          },
+        ));
   }
 }
 
@@ -112,27 +123,25 @@ class _MyHomePageState extends State<MyHomePage> {
           const Padding(
             padding: EdgeInsets.only(top: 20),
           ),
-          Flexible(
-            child: CarouselSlider(
-              items: imageSliders,
-              carouselController: _controller,
-              options: CarouselOptions(
-                  viewportFraction: 0.8,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 3),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.horizontal,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
-            ),
+          CarouselSlider(
+            items: imageSliders,
+            carouselController: _controller,
+            options: CarouselOptions(
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -155,23 +164,52 @@ class _MyHomePageState extends State<MyHomePage> {
             }).toList(),
           ),
           const Padding(
-            padding: EdgeInsets.only(bottom: 25),
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: Divider(
+              color: Color.fromRGBO(38, 70, 85, 1), //color of divider
+              height: 5, //height spacing of divider
+              thickness: 3, //thickness of divier line
+              indent: 25, //spacing at the start of divider
+              endIndent: 25, //spacing at the end of divider
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+            padding: const EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.white, width: 3),
+                borderRadius: BorderRadius.circular(15.0),
+                boxShadow: const [
+                  BoxShadow(color: Colors.white, blurRadius: 2.0)
+                ]),
+            child: Center(
+              child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.asset('assets/introduction.jpg', fit: BoxFit.cover),
+                      Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        right: 0.0,
+                        child: Container(),
+                      ),
+                    ],
+                  )),
+            ),
           ),
           const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
-                    "Our reviews",
+                    "Our Reviews",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                    ),
+                        color: Color.fromRGBO(38, 70, 85, 1),
+                        fontSize: 24,
+                        fontFamily: 'Aubrey'),
                   ))),
-          const Padding(
-            padding: EdgeInsets.only(bottom: 10),
-          ),
           FutureBuilder(
               future: fetchFeedback(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -195,16 +233,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         itemCount: snapshot.data!.length,
                         itemBuilder: (_, index) => Container(
                               margin: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 12),
+                                  horizontal: 16, vertical: 8),
                               padding: const EdgeInsets.all(20.0),
                               decoration: BoxDecoration(
                                   image: const DecorationImage(
                                       image: AssetImage('assets/cardImage.jpg'),
-                                      fit: BoxFit.fill),
+                                      fit: BoxFit.cover),
                                   borderRadius: BorderRadius.circular(15.0),
                                   boxShadow: const [
                                     BoxShadow(
-                                        color: Colors.black, blurRadius: 2.0)
+                                        color: Color.fromRGBO(38, 70, 85, 1),
+                                        blurRadius: 2.0)
                                   ]),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -212,17 +251,33 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: [
                                   Text(
                                     "Rating: ${snapshot.data![index].fields.rating} / 10",
+                                    textAlign: TextAlign.right,
                                     style: const TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromRGBO(38, 70, 85, 1)),
                                   ),
-                                  Text(snapshot.data![index].fields.date
-                                      .toString()
-                                      .substring(0, 10)),
-                                  const SizedBox(height: 10),
                                   Text(
-                                      "Feedback: \n${snapshot.data![index].fields.feedback}"),
+                                    snapshot.data![index].fields.date
+                                        .toString()
+                                        .substring(0, 10),
+                                    textAlign: TextAlign.right,
+                                    style: const TextStyle(fontSize: 14.0),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const Text(
+                                    "Feedback:",
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromRGBO(38, 70, 85, 1)),
+                                  ),
+                                  Text(
+                                    "${snapshot.data![index].fields.feedback}",
+                                    style: const TextStyle(
+                                      fontSize: 14.0,
+                                    ),
+                                  )
                                 ],
                               ),
                             ));
