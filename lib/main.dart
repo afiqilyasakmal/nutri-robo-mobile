@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:nutrirobo/page/fetchFeedbackItems.dart';
+import 'package:nutrirobo/landingPage/page/fetchFeedbackItems.dart';
 import 'package:nutrirobo/drawer.dart';
 
 final List<String> imgList = [
