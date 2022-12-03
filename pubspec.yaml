@@ -39,7 +39,6 @@ dependencies:
   http: ^0.13.5
   provider: ^6.0.4
   pbp_django_auth: ^0.2.3
-  pbp_django_auth: ^0.2.3
   provider: ^6.0.4
 
 dev_dependencies:
