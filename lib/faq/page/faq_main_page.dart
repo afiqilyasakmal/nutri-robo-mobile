@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:nutrirobo/faq/model/faq_model.dart';
 import 'package:nutrirobo/faq/page/faq_detail_page.dart';
-import 'package:nutrirobo/drawer.dart';
 
 class MyfaqPage extends StatefulWidget {
-const MyfaqPage({Key? key}) : super(key: key);
+  const MyfaqPage({Key? key}) : super(key: key);
 
   @override
   _MyfaqPageState createState() => _MyfaqPageState();
@@ -16,10 +15,10 @@ const MyfaqPage({Key? key}) : super(key: key);
 List<MyfaqData> listMyfaqData = [];
 List<MyfaqData> listMyfaqDataFilter = [];
 
-
 class _MyfaqPageState extends State<MyfaqPage> {
   Future<List<MyfaqData>> fetchMyfaqData() async {
-    var url = Uri.parse('https://nutrirobo.up.railway.app/FAQ/get_faq_content/');
+    var url =
+        Uri.parse('https://nutrirobo.up.railway.app/FAQ/get_faq_content/');
     var response = await http.get(
       url,
       headers: {
@@ -31,11 +30,23 @@ class _MyfaqPageState extends State<MyfaqPage> {
     // melakukan decode response menjadi bentuk json
     var data = jsonDecode(utf8.decode(response.bodyBytes));
 
+    // mereset listMyfaqData agar tidak terjadi duplikasi data
+    listMyfaqData = [];
+
     // melakukan konversi data json menjadi object MyfaqData
     for (var d in data) {
-      if (d != null) {
+      // if (d == null) {
+      //   continue;
+      // }
+
+      // if (listMyfaqData.firstWhere((element) => element.pk == MyfaqData.fromJson(d).pk, orElse: () => true) == true) {
+      //   listMyfaqData.add(MyfaqData.fromJson(d));
+      // }
+      if (d!= null){
         listMyfaqData.add(MyfaqData.fromJson(d));
       }
+
+      listMyfaqDataFilter = listMyfaqData;
     }
 
     return listMyfaqData;
@@ -47,8 +58,9 @@ class _MyfaqPageState extends State<MyfaqPage> {
       results = listMyfaqData;
     } else {
       results = listMyfaqData
-          .where((element) =>
-              element.fields.question.toLowerCase().contains(enteredKeyword))
+          .where((element) => element.fields.question
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
           .toList();
     }
 
@@ -63,7 +75,6 @@ class _MyfaqPageState extends State<MyfaqPage> {
       appBar: AppBar(
         title: Text('FAQ'),
       ),
-      // endDrawer: MyDrawer(),
       body: FutureBuilder(
         future: fetchMyfaqData(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -99,16 +110,17 @@ class _MyfaqPageState extends State<MyfaqPage> {
                     SizedBox(height: 10),
                     Expanded(
                       child: ListView.builder(
-                          itemCount: snapshot.data!.length,
+                          itemCount: listMyfaqDataFilter.length,
                           itemBuilder: (BuildContext context, int index) {
                             return ListTile(
-                                title: Text("${snapshot.data![index].fields.question}"),
+                                title: Text(
+                                    "${listMyfaqDataFilter[index].fields.question}"),
                                 onTap: () {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => MyfaqDetail(
-                                          myfaqData: snapshot.data![index],
+                                          myfaqData: listMyfaqDataFilter[index],
                                         ),
                                       ));
                                 });
