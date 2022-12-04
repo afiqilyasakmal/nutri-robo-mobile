@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nutrirobo/main.dart';
 import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 import 'package:nutrirobo/faq/page/faq_main_page.dart';
 
@@ -17,7 +16,10 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: [
           ListTile(
-            leading: const Icon(Icons.home),
+            leading: const Icon(
+              Icons.home,
+              color: Color.fromRGBO(38, 70, 85, 1),
+            ),
             title: const Text("Home Page"),
             onTap: () {
               Navigator.pop(
