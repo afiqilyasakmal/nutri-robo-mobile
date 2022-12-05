@@ -50,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Row(
@@ -152,23 +153,34 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                         color: Color.fromRGBO(38, 70, 85, 1),
                         fontSize: 24,
+                        fontWeight: FontWeight.bold,
                         fontFamily: 'Aubrey'),
                   ))),
           FutureBuilder(
               future: fetchFeedback(),
               builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.data == null) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 30.0),
+                    child: Center(
+                        child: CircularProgressIndicator(
+                      color: Color.fromRGBO(38, 70, 85, 1),
+                    )),
+                  );
                 } else {
-                  if (!snapshot.hasData) {
+                  if (snapshot.data.length == 0) {
                     return Column(
                       children: const [
-                        Text(
-                          "Belum ada feedback ditambahkan",
-                          style:
-                              TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 30.0),
+                          child: Text(
+                            "Belum ada feedback ditambahkan",
+                            style: TextStyle(
+                                color: Color.fromRGBO(38, 70, 85, 1),
+                                fontSize: 20,
+                                fontFamily: 'Aubrey'),
+                          ),
                         ),
-                        SizedBox(height: 8),
                       ],
                     );
                   } else {

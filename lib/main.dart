@@ -47,15 +47,13 @@ class MyApp extends StatelessWidget {
             // or simply save your changes to "hot reload" in a Flutter IDE).
             // Notice that the counter didn't reset back to zero; the application
             // is not restarted.
-            primarySwatch: white,
+            primarySwatch: Colors.grey,
             scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
           ),
           home: const MyHomePage(title: 'NUTRI-ROBO'),
-          initialRoute: "",
           routes: {
             "/signIn": (BuildContext context) => const SignInPage(),
             "/signUp": (BuildContext context) => const SignUpPage(),
-            "": (BuildContext context) => const MyHomePage(title: 'NUTRI-ROBO'),
           },
         ));
   }
