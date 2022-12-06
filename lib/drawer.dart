@@ -62,7 +62,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('FAQ'),
             onTap: () {
-              Navigator.pushReplacement(context,
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const MyfaqPage()));
             },
           ),

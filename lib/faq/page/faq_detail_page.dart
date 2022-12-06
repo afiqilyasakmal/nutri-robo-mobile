@@ -13,63 +13,35 @@ class MyfaqDetail extends StatelessWidget {
     // Use the Todo to create the UI.
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail'),
+        title: Text('FAQ'),
       ),
-      // drawer: myDrawer(context),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            Text(
-              '${myfaqData.fields.question}',
+      // drawer: MyDrawer(),
+      body: ListView(padding: new EdgeInsets.all(13.0), children: <Widget>[
+        Container(
+          child: Center(
+            child: Text(
+              myfaqData.fields.question,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
               ),
             ),
-            Row(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Answer: ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    '${myfaqData.fields.answer}',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: ListTile(
-            title: Text(
-              'Back',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            onTap: () {
-              // Route kembali ke halaman sebelumnya
-              Navigator.pop(context);
-            },
-            tileColor: Colors.blue,
           ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        Container(
+          child: Center(
+            child: Text(
+              myfaqData.fields.answer,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ),
+      
+
+      ]),
+      
     );
   }
 }
