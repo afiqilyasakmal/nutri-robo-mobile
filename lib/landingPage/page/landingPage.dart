@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nutrirobo/drawer.dart';
 import 'package:nutrirobo/landingPage/page/fetchFeedbackItems.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+
+import 'feedbackUser.dart';
 
 final List<String> imgList = [
   'assets/nutriroboImage.jpg',
@@ -39,9 +43,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _current = 0;
+  bool _visibility = false;
   final CarouselController _controller = CarouselController();
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+    if (request.loggedIn) {
+      _visibility = true;
+    } else {
+      _visibility = false;
+    }
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -143,19 +154,52 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
           ),
-          const Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Our Reviews",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Color.fromRGBO(38, 70, 85, 1),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Aubrey'),
-                  ))),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        "Our Reviews",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Color.fromRGBO(38, 70, 85, 1),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Aubrey'),
+                      ))),
+              Visibility(
+                  visible: _visibility,
+                  child: Container(
+                    height: 40,
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FeedbackUserPage()),
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.grey,
+                      ),
+                      child: const Text(
+                        "See your review",
+                        style: TextStyle(
+                          fontSize: 14,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  )),
+            ],
+          ),
           FutureBuilder(
               future: fetchFeedback(),
               builder: (context, AsyncSnapshot snapshot) {
@@ -173,12 +217,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: const [
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: 30.0),
-                          child: Text(
-                            "Belum ada feedback ditambahkan",
-                            style: TextStyle(
-                                color: Color.fromRGBO(38, 70, 85, 1),
-                                fontSize: 20,
-                                fontFamily: 'Aubrey'),
+                          child: Center(
+                            child: Text(
+                              "Belum ada feedback ditambahkan",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(38, 70, 85, 1),
+                                  fontSize: 20,
+                                  fontFamily: 'Aubrey'),
+                            ),
                           ),
                         ),
                       ],

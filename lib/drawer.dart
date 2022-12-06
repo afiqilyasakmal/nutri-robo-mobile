@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nutrirobo/landingPage/page/landingPage.dart';
+import 'package:nutrirobo/landingPage/page/signIn.dart';
 import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 import 'package:nutrirobo/faq/page/faq_main_page.dart';
-
-import 'landingPage/page/signIn.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -13,8 +14,16 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  bool _visibility = true;
+
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+    if (request.loggedIn) {
+      _visibility = false;
+    } else {
+      _visibility = true;
+    }
     return Drawer(
       child: Column(
         children: [
@@ -66,24 +75,46 @@ class _MyDrawerState extends State<MyDrawer> {
                   MaterialPageRoute(builder: (context) => const MyfaqPage()));
             },
           ),
-          Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: ListTile(
-                leading: const Icon(
-                  Icons.login,
-                  color: Colors.black,
+          Visibility(
+              visible: _visibility,
+              child: Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.login,
+                      color: Colors.black,
+                    ),
+                    title: const Text('Sign In'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignInPage()));
+                    },
+                  ),
                 ),
-                title: const Text('Sign In'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignInPage()));
-                },
-              ),
-            ),
-          ),
+              )),
+          Visibility(
+              visible: !_visibility,
+              child: Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.logout,
+                      color: Colors.black,
+                    ),
+                    title: const Text('Sign Out'),
+                    onTap: () async {
+                      // ignore: unused_local_variable
+                      final response = request.logout(
+                        "https://nutrirobo.up.railway.app/auth/logout",
+                      );
+                    },
+                  ),
+                ),
+              )),
         ],
       ),
     );
