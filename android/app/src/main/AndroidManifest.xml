@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nutrirobo">
+    package="com.example.nutriblog">
    <application
-        android:label="nutrirobo"
+        android:label="nutriblog"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

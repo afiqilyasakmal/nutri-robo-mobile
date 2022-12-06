@@ -1,6 +1,6 @@
 {
-    "name": "nutrirobo",
-    "short_name": "nutrirobo",
+    "name": "nutriblog",
+    "short_name": "nutriblog",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
