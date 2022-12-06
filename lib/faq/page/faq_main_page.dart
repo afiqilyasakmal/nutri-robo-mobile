@@ -35,14 +35,7 @@ class _MyfaqPageState extends State<MyfaqPage> {
 
     // melakukan konversi data json menjadi object MyfaqData
     for (var d in data) {
-      // if (d == null) {
-      //   continue;
-      // }
-
-      // if (listMyfaqData.firstWhere((element) => element.pk == MyfaqData.fromJson(d).pk, orElse: () => true) == true) {
-      //   listMyfaqData.add(MyfaqData.fromJson(d));
-      // }
-      if (d!= null){
+      if (d != null) {
         listMyfaqData.add(MyfaqData.fromJson(d));
       }
 
@@ -112,9 +105,11 @@ class _MyfaqPageState extends State<MyfaqPage> {
                       child: ListView.builder(
                           itemCount: listMyfaqDataFilter.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return ListTile(
+                            return Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: ListTile(
                                 title: Text(
-                                    "${listMyfaqDataFilter[index].fields.question}"),
+                                    listMyfaqDataFilter[index].fields.question),
                                 onTap: () {
                                   Navigator.push(
                                       context,
@@ -123,7 +118,9 @@ class _MyfaqPageState extends State<MyfaqPage> {
                                           myfaqData: listMyfaqDataFilter[index],
                                         ),
                                       ));
-                                });
+                                },
+                              ),
+                            );
                           }),
                     ),
                   ],

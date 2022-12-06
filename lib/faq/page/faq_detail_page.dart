@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nutrirobo/faq/model/faq_model.dart';
-import 'package:nutrirobo/drawer.dart';
 
 class MyfaqDetail extends StatelessWidget {
   // In the constructor, require a Todo.
