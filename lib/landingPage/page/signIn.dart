@@ -183,6 +183,7 @@ class _SignInPageState extends State<SignInPage> {
                         child: TextButton(
                           onPressed: () async {
                             if (_loginFormKey.currentState!.validate()) {
+                              // ignore: unused_local_variable
                               final response = await request.login(
                                   "https://nutrirobo.up.railway.app/auth/login/",
                                   {
@@ -190,8 +191,10 @@ class _SignInPageState extends State<SignInPage> {
                                     'password': password1,
                                   });
                               if (request.loggedIn) {
+                                // ignore: use_build_context_synchronously
                                 showAlertDialogSuccess(context);
                               } else {
+                                // ignore: use_build_context_synchronously
                                 showAlertDialogFailed(context);
                               }
                             }

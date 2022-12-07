@@ -108,9 +108,22 @@ class _MyDrawerState extends State<MyDrawer> {
                     title: const Text('Sign Out'),
                     onTap: () async {
                       // ignore: unused_local_variable
-                      final response = request.logout(
+                      final response = await request.get(
                         "https://nutrirobo.up.railway.app/auth/logout",
                       );
+                      if (response["status"]) {
+                        request.loggedIn = false;
+                        request.jsonData = {};
+                      } else {
+                        request.loggedIn = true;
+                      }
+                      request.cookies = {};
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const MyHomePage(title: "NUTRI-ROBO")));
                     },
                   ),
                 ),
