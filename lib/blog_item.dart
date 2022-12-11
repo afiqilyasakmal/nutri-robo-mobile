@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './blog_detail_screen.dart';
 
 // custom widget untuk masing-masing post
+// untuk ditampilkan pada blogs_screen
 import 'package:nutrirobo/models/blog.dart';
 
 class BlogItem extends StatelessWidget {

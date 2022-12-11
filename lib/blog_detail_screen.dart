@@ -1,3 +1,4 @@
+// widget untuk menampilkan detail post
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -17,6 +18,7 @@ class BlogDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(title),
         ) ,
       body: SingleChildScrollView(
@@ -24,6 +26,13 @@ class BlogDetailScreen extends StatelessWidget {
           children: [
             Html(
               data:body,
+              style: {
+                "p": Style(
+                  fontSize: FontSize.larger,
+                  lineHeight: LineHeight.em(2),
+                  margin: EdgeInsets.only(bottom: 2),
+                ),
+              },
             ),
           ], 
           ) 

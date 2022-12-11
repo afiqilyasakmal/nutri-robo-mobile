@@ -1,4 +1,4 @@
-// halaman yang menampilkan post
+// widget untuk menampilkan daftar post
 import 'package:flutter/material.dart';
 import 'package:nutrirobo/models/blog.dart';
 
@@ -10,7 +10,7 @@ class BlogsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Blog'),),
+      appBar: AppBar(title: const Text('Blog'), centerTitle: true,),
       body: FutureBuilder(
       future: fetchBlog(),
       builder: (context, AsyncSnapshot snapshot) { 
