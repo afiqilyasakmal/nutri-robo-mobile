@@ -51,14 +51,14 @@ class _FeedbackUserPageState extends State<FeedbackUserPage> {
               );
             } else {
               if (snapshot.data.length == 0) {
-                return Column(
-                  children: const [
+                return ListView(
+                  children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30.0),
+                      padding: const EdgeInsets.only(top: 275.0),
                       child: Center(
                         child: Text(
-                          "Belum ada feedback ditambahkan",
-                          style: TextStyle(
+                          "$username belum menambahkan feedback",
+                          style: const TextStyle(
                               color: Color.fromRGBO(38, 70, 85, 1),
                               fontSize: 20,
                               fontFamily: 'Aubrey'),
