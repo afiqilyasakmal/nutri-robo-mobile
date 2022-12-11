@@ -18,9 +18,11 @@ class BlogDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         ) ,
-      body: Center(
-        child: Text(
-          body, //INI MASIH BELOM BISA ANJAY
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(body, style: TextStyle(),),
+          ], 
           ) 
         ),
     );
