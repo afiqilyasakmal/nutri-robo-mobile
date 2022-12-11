@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:';
 import 'package:http/http.dart' as http;
+//import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,8 +49,8 @@ class _EditProfileState extends State<EditProfile> {
     name = widget.name;
     email = widget.email;
     futureProfile = fetchProfile(name).then((value) {
-      _phone = value.phone;
-      _role = value.role;
+      _phone = value.fields.phone;
+      _role = value.fields.role;
       return value;
     });
   }
@@ -123,7 +124,8 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                               Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: _buildBio(snapshot.data!.phone)),
+                                  child:
+                                      _buildBio(snapshot.data!.fields.phone)),
                             ],
                           ),
                         ),

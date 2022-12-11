@@ -1,48 +1,50 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:nutrirobo/page/detail_profile.dart';
+import 'package:nutrirobo/page/detail_target.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyTargetPage());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  static const MaterialColor white = MaterialColor(
-    0xFFFFFFFF,
-    <int, Color>{
-      50: Color(0xFFFFFFFF),
-      100: Color(0xFFFFFFFF),
-      200: Color(0xFFFFFFFF),
-      300: Color(0xFFFFFFFF),
-      400: Color(0xFFFFFFFF),
-      500: Color(0xFFFFFFFF),
-      600: Color(0xFFFFFFFF),
-      700: Color(0xFFFFFFFF),
-      800: Color(0xFFFFFFFF),
-      900: Color(0xFFFFFFFF),
-    },
-  );
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//   static const MaterialColor white = MaterialColor(
+//     0xFFFFFFFF,
+//     <int, Color>{
+//       50: Color(0xFFFFFFFF),
+//       100: Color(0xFFFFFFFF),
+//       200: Color(0xFFFFFFFF),
+//       300: Color(0xFFFFFFFF),
+//       400: Color(0xFFFFFFFF),
+//       500: Color(0xFFFFFFFF),
+//       600: Color(0xFFFFFFFF),
+//       700: Color(0xFFFFFFFF),
+//       800: Color(0xFFFFFFFF),
+//       900: Color(0xFFFFFFFF),
+//     },
+//   );
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NUTRI-ROBO',
-      theme: ThemeData(
-        //primarySwatch: Colors.blue,
-        primarySwatch: white,
-        scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
-      ),
-      home: MyTargetPage(),
-    );
-  }
-}
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'NUTRI-ROBO',
+//       theme: ThemeData(
+//         //primarySwatch: Colors.blue,
+//         primarySwatch: white,
+//         scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
+//       ),
+//       home: MyTargetPage(),
+//     );
+//   }
+// }
 
 class MyTargetPage extends StatefulWidget {
-  const MyTargetPage({super.key});
+  const MyTargetPage({super.key, required this.username});
 
-  //final String title = 'NUTRI-ROBO';
+  final String username;
 
   @override
   State<MyTargetPage> createState() => _MyTargetPageState();
@@ -57,7 +59,9 @@ class _MyTargetPageState extends State<MyTargetPage> {
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           title: Row(
             children: [
@@ -84,17 +88,31 @@ class _MyTargetPageState extends State<MyTargetPage> {
         ),
         body: Center(
             child: ListView(
-          children: const [
+          children: [
             ListTile(
-              leading: Icon(Icons.account_circle_outlined),
-              title: Text("YOUR PROFILE"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                leading: Icon(Icons.account_circle_outlined),
+                title: Text("YOUR PROFILE"),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetailMyProfilePage(username: widget.username)))),
             ListTile(
-              leading: Icon(Icons.health_and_safety_outlined),
-              title: Text("YOUR TARGET HEALTH"),
-              trailing: Icon(Icons.keyboard_arrow_right),
-            ),
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                leading: Icon(Icons.health_and_safety_outlined),
+                title: Text("YOUR TARGET HEALTH"),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetailMyTargetPage(username: widget.username)))),
           ],
 
           //itemCount: listMenu.length,
