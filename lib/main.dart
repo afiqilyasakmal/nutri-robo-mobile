@@ -50,7 +50,10 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.grey,
             scaffoldBackgroundColor: const Color.fromRGBO(219, 232, 246, 1.0),
           ),
-          home: const MyHomePage(title: 'NUTRI-ROBO'),
+          home: const MyHomePage(
+            title: 'NUTRI-ROBO',
+            username: "",
+          ),
           routes: {
             "/signIn": (BuildContext context) => const SignInPage(),
             "/signUp": (BuildContext context) => const SignUpPage(),

@@ -1,27 +1,20 @@
-import 'package:nutrirobo/landingPage/page/landingPage.dart';
-import 'package:nutrirobo/landingPage/page/signUp.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class AddFeedbackPage extends StatefulWidget {
+  const AddFeedbackPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<AddFeedbackPage> createState() => _AddFeedbackPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
-  final _loginFormKey = GlobalKey<FormState>();
-  bool isPasswordVisible = false;
-  void togglePasswordView() {
-    setState(() {
-      isPasswordVisible = !isPasswordVisible;
-    });
-  }
+class _AddFeedbackPageState extends State<AddFeedbackPage> {
+  final _formKey = GlobalKey<FormState>();
 
-  String _username = "";
-  String password1 = "";
+  String rating = "";
+  String feedback = "";
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -58,14 +51,14 @@ class _SignInPageState extends State<SignInPage> {
                 ],
               ),
               child: Form(
-                  key: _loginFormKey,
+                  key: _formKey,
                   child: ListView(
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(top: 20.0, bottom: 5.0),
                         child: Center(
                           child: Text(
-                            "SIGN IN",
+                            "Add Feedback",
                             style: TextStyle(
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
@@ -88,27 +81,32 @@ class _SignInPageState extends State<SignInPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 20),
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           decoration: InputDecoration(
-                            labelText: "Username",
-                            icon: const Icon(Icons.people),
+                            labelText: "Rating",
+                            icon: const Icon(Icons.thumbs_up_down_outlined),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
                           onChanged: (String? value) {
                             setState(() {
-                              _username = value!;
+                              rating = value!;
                             });
                           },
                           onSaved: (String? value) {
                             setState(() {
-                              _username = value!;
+                              rating = value!;
                             });
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Username tidak boleh kosong";
+                              return "Rating tidak boleh kosong";
                             }
                             return null;
                           },
@@ -129,35 +127,27 @@ class _SignInPageState extends State<SignInPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 20),
                         child: TextFormField(
-                          obscureText: !isPasswordVisible,
                           decoration: InputDecoration(
-                            labelText: "Password",
-                            icon: const Icon(Icons.lock),
-                            suffixIcon: IconButton(
-                              splashRadius: 1,
-                              icon: Icon(isPasswordVisible
-                                  ? Icons.visibility_outlined
-                                  : Icons.visibility_off_outlined),
-                              onPressed: togglePasswordView,
-                            ),
+                            labelText: "Feedback",
+                            icon: const Icon(Icons.mail),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
                           onChanged: (String? value) {
                             setState(() {
-                              password1 = value!;
+                              feedback = value!;
                             });
                           },
                           onSaved: (String? value) {
                             setState(() {
-                              password1 = value!;
+                              feedback = value!;
                             });
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Password tidak boleh kosong";
+                              return "Feedback tidak boleh kosong";
                             }
                             return null;
                           },
@@ -182,20 +172,19 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         child: TextButton(
                           onPressed: () async {
-                            if (_loginFormKey.currentState!.validate()) {
-                              // ignore: unused_local_variable
-                              final response = await request.login(
-                                  "https://nutrirobo.up.railway.app/auth/login/",
+                            if (_formKey.currentState!.validate()) {
+                              final response = await request.post(
+                                  "https://nutrirobo.up.railway.app/auth/addfeedback/",
                                   {
-                                    'username': _username,
-                                    'password': password1,
+                                    "rating": rating,
+                                    "feedback": feedback,
                                   });
-                              if (request.loggedIn) {
-                                // ignore: use_build_context_synchronously
-                                showAlertDialogSuccess(context, _username);
-                              } else {
+                              if (!response['status']) {
                                 // ignore: use_build_context_synchronously
                                 showAlertDialogFailed(context);
+                              } else {
+                                // ignore: use_build_context_synchronously
+                                showAlertDialogSuccess(context);
                               }
                             }
                           },
@@ -204,29 +193,8 @@ class _SignInPageState extends State<SignInPage> {
                               backgroundColor:
                                   const Color.fromARGB(255, 15, 81, 135)),
                           child: const Text(
-                            "Sign In",
+                            "Add Feedback",
                             style: TextStyle(fontSize: 18),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 35.0),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignUpPage()));
-                          },
-                          style: TextButton.styleFrom(
-                            foregroundColor: Colors.blue,
-                          ),
-                          child: const Text(
-                            "Don't have account yet?",
-                            style: TextStyle(
-                              fontSize: 14,
-                              decoration: TextDecoration.underline,
-                            ),
                           ),
                         ),
                       ),
@@ -249,8 +217,8 @@ showAlertDialogFailed(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: const Text("Sign In Failed!"),
-    content: const Text("Invalid username or password"),
+    title: const Text("Failed to add feedback!"),
+    content: const Text("Invalid input for rating or feedback message"),
     actions: [
       okButton,
     ],
@@ -265,23 +233,24 @@ showAlertDialogFailed(BuildContext context) {
   );
 }
 
-showAlertDialogSuccess(BuildContext context, String _username) {
+showAlertDialogSuccess(BuildContext context) {
   // set up the button
   Widget okButton = TextButton(
     child: const Text("Close"),
     onPressed: () {
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-              builder: (context) =>
-                  MyHomePage(title: 'NUTRI_ROBO', username: _username)),
-          (Route<dynamic> route) => false);
+      Navigator.pop(
+        context,
+      );
+      Navigator.pop(
+        context,
+      );
     },
   );
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: const Text("Login Success!"),
-    content: const Text("You will be redirected to the home page"),
+    title: const Text("Feedback added successfully!"),
+    content: const Text("You will be redirected to your feedback list"),
     actions: [
       okButton,
     ],

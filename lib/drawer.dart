@@ -5,6 +5,7 @@ import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 import 'package:nutrirobo/faq/page/faq_main_page.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:nutrirobo/blog/blogs_screen.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -34,11 +35,8 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
             title: const Text("Home Page"),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.pop(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const MyHomePage(title: 'NUTRI-ROBO')),
               );
             },
           ),
@@ -63,8 +61,9 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('Blog'),
             onTap: () {
-              Navigator.pop(
+              Navigator.push(
                 context,
+                MaterialPageRoute(builder: (context) => BlogsScreen()),
               );
             },
           ),
@@ -122,8 +121,10 @@ class _MyDrawerState extends State<MyDrawer> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const MyHomePage(title: "NUTRI-ROBO")));
+                              builder: (context) => const MyHomePage(
+                                    title: "NUTRI-ROBO",
+                                    username: "",
+                                  )));
                     },
                   ),
                 ),

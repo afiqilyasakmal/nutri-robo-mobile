@@ -2,8 +2,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../model/feedbackItem.dart';
 
-Future<List<FeedbackItem>> fetchFeedbackUser() async {
-  var url = Uri.parse('https://nutrirobo.up.railway.app/auth/userfeedback');
+Future<List<FeedbackItem>> fetchFeedbackUser(String username) async {
+  var url =
+      Uri.parse('https://nutrirobo.up.railway.app/auth/userfeedback/$username');
   var response = await http.get(
     url,
     headers: {
