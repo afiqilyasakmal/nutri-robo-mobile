@@ -3,7 +3,7 @@ import 'dart:convert';
 import '../model/feedbackItem.dart';
 
 Future<List<FeedbackItem>> fetchFeedbackUser() async {
-  var url = Uri.parse('https://nutrirobo.up.railway.app/auth/userfeedback');
+  var url = Uri.parse('https://nutrirobo.up.railway.app/auth/userfeedback/');
   var response = await http.get(
     url,
     headers: {
