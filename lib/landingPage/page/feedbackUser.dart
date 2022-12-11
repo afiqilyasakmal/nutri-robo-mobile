@@ -3,15 +3,22 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import '../util/fetchFeedbackUser.dart';
 import 'addFeedback.dart';
+import 'package:http/http.dart' as http;
 
 class FeedbackUserPage extends StatefulWidget {
-  const FeedbackUserPage({super.key});
+  const FeedbackUserPage({super.key, required this.username});
+
+  final String username;
 
   @override
-  State<FeedbackUserPage> createState() => _FeedbackUserPageState();
+  State<FeedbackUserPage> createState() =>
+      // ignore: no_logic_in_create_state
+      _FeedbackUserPageState(username: username);
 }
 
 class _FeedbackUserPageState extends State<FeedbackUserPage> {
+  _FeedbackUserPageState({required this.username});
+  final String username;
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -32,7 +39,7 @@ class _FeedbackUserPageState extends State<FeedbackUserPage> {
         ),
       ),
       body: FutureBuilder(
-          future: fetchFeedbackUser(),
+          future: fetchFeedbackUser(username),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return const Padding(
@@ -82,13 +89,32 @@ class _FeedbackUserPageState extends State<FeedbackUserPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Rating: ${snapshot.data![index].fields.rating} / 10",
-                                textAlign: TextAlign.right,
-                                style: const TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(38, 70, 85, 1)),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Rating: ${snapshot.data![index].fields.rating} / 10",
+                                    textAlign: TextAlign.right,
+                                    style: const TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromRGBO(38, 70, 85, 1)),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      final response = await http.get(Uri.parse(
+                                          "https://nutrirobo.up.railway.app/delete-task/${snapshot.data![index].pk}"));
+                                    },
+                                    style: TextButton.styleFrom(
+                                        foregroundColor: Colors.white,
+                                        backgroundColor: Colors.red),
+                                    child: const Text(
+                                      "Delete",
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  )
+                                ],
                               ),
                               Text(
                                 snapshot.data![index].fields.date

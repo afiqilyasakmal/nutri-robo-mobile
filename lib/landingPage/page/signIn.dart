@@ -20,7 +20,7 @@ class _SignInPageState extends State<SignInPage> {
     });
   }
 
-  String username = "";
+  String _username = "";
   String password1 = "";
   @override
   Widget build(BuildContext context) {
@@ -97,12 +97,12 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           onChanged: (String? value) {
                             setState(() {
-                              username = value!;
+                              _username = value!;
                             });
                           },
                           onSaved: (String? value) {
                             setState(() {
-                              username = value!;
+                              _username = value!;
                             });
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -187,12 +187,12 @@ class _SignInPageState extends State<SignInPage> {
                               final response = await request.login(
                                   "https://nutrirobo.up.railway.app/auth/login/",
                                   {
-                                    'username': username,
+                                    'username': _username,
                                     'password': password1,
                                   });
                               if (request.loggedIn) {
                                 // ignore: use_build_context_synchronously
-                                showAlertDialogSuccess(context);
+                                showAlertDialogSuccess(context, _username);
                               } else {
                                 // ignore: use_build_context_synchronously
                                 showAlertDialogFailed(context);
@@ -265,16 +265,15 @@ showAlertDialogFailed(BuildContext context) {
   );
 }
 
-showAlertDialogSuccess(BuildContext context) {
+showAlertDialogSuccess(BuildContext context, String _username) {
   // set up the button
   Widget okButton = TextButton(
     child: const Text("Close"),
     onPressed: () {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
-              builder: (context) => const MyHomePage(
-                    title: 'NUTRI_ROBO',
-                  )),
+              builder: (context) =>
+                  MyHomePage(title: 'NUTRI_ROBO', username: _username)),
           (Route<dynamic> route) => false);
     },
   );
