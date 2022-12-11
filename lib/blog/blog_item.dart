@@ -35,6 +35,12 @@ class BlogItem extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
         decoration: BoxDecoration(
+          boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 2.0
+                        )
+                        ],
           gradient: LinearGradient(
             colors: [Colors.white.withOpacity(1), Colors.white],
             begin: Alignment.topLeft,
