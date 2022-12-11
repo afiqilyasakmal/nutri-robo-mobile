@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nutrirobo/drawer.dart';
-import 'package:nutrirobo/landingPage/page/fetchFeedbackItems.dart';
+import 'package:nutrirobo/landingPage/util/fetchFeedbackItems.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -279,7 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     style: const TextStyle(
                                       fontSize: 14.0,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ));
