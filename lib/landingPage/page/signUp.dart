@@ -306,9 +306,12 @@ showAlertDialogSuccess(BuildContext context) {
   Widget okButton = TextButton(
     child: const Text("Close"),
     onPressed: () {
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const SignInPage()),
-          (Route<dynamic> route) => false);
+      Navigator.pop(
+        context,
+      );
+      Navigator.pop(
+        context,
+      );
     },
   );
 
