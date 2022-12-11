@@ -35,11 +35,8 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
             title: const Text("Home Page"),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.pop(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const MyHomePage(title: 'NUTRI-ROBO')),
               );
             },
           ),
@@ -132,8 +129,10 @@ class _MyDrawerState extends State<MyDrawer> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const MyHomePage(title: "NUTRI-ROBO")));
+                              builder: (context) => const MyHomePage(
+                                    title: "NUTRI-ROBO",
+                                    username: "",
+                                  )));
                     },
                   ),
                 ),

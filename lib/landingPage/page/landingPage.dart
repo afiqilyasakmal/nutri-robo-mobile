@@ -24,7 +24,7 @@ final List<String> carouselCaption = [
 ];
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.username});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -37,11 +37,16 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+  final String username;
+
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  // ignore: no_logic_in_create_state
+  State<MyHomePage> createState() => _MyHomePageState(username: username);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  _MyHomePageState({required this.username});
+  final String username;
   int _current = 0;
   bool _visibility = false;
   final CarouselController _controller = CarouselController();
@@ -183,7 +188,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const FeedbackUserPage()),
+                              builder: (context) => FeedbackUserPage(
+                                    username: username,
+                                  )),
                         );
                       },
                       style: TextButton.styleFrom(
