@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class BlogDetailScreen extends StatelessWidget {
 
@@ -21,7 +22,9 @@ class BlogDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(body, style: TextStyle(),),
+            Html(
+              data:body,
+            ),
           ], 
           ) 
         ),
