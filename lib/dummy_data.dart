@@ -2,17 +2,27 @@ import 'package:flutter/material.dart';
 
 import './models/blog.dart';
 
-const DUMMY_BLOGS = const [
-  Blog(
-    id: 'b1',
-    title: 'Marijuana for Medical Use May Result in Rapid Onset of Cannabis use Disorder',
-  ),
-  Blog(
-    id: 'b2',
-    title: 'Love and Courage',
-  ),
-  Blog(
-    id: 'b3',
-    title: 'Terlalu Sering Begadang, Ini Dampaknya pada Tubuh',
-  ),
-];
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<List<Blog>> fetchBlog() async {
+  var url =
+      Uri.parse('https://nutrirobo.up.railway.app/blog/json');
+  var response = await http.get(
+    url,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  );
+
+  var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+  List<Blog> listBlog = [];
+  for (var d in data) {
+    if (d != null) {
+      listBlog.add(Blog.fromJson(d));
+    }
+  }
+
+  return listBlog;
+}

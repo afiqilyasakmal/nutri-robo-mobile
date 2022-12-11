@@ -5,17 +5,20 @@ import './blog_detail_screen.dart';
 import 'package:nutrirobo/models/blog.dart';
 
 class BlogItem extends StatelessWidget {
-  final String id;
   final String title;
-  final Color color;
+  final String slug;
+  final String intro;
+  final String body;
+  final String createdAt;
+  //final String pk;
 
-  BlogItem(this.id, this.title, this.color);
+  BlogItem({required this.title, required this.slug, required this.intro, required this.body, required this.createdAt});
 
   void selectPost(BuildContext ctx) {
     Navigator.of(ctx).push(
       MaterialPageRoute(
         builder: (_) {
-          return BlogDetailScreen(id, title);
+          return BlogDetailScreen(title, slug, intro, body, createdAt);
         },
       ),
     );
@@ -32,7 +35,7 @@ class BlogItem extends StatelessWidget {
         child: Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [color.withOpacity(1), color],
+            colors: [Colors.white.withOpacity(1), Colors.white],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
