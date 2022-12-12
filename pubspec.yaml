@@ -92,6 +92,14 @@ flutter:
     - assets/blogImage.jpg
     - assets/cardImage.jpg
     - assets/introduction.jpg
+    - assets/calorie.jpg
+    - assets/sleep.jpg
+    - assets/exercise.jpg
+    - assets/water.jpg
+    - assets/countCalorie.jpg
+    - assets/countSleep.jpg
+    - assets/countExercise.jpg
+    - assets/countWater.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -108,6 +116,9 @@ flutter:
     - family: Aubrey
       fonts:
         - asset: assets/aubrey.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/Poppins.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
