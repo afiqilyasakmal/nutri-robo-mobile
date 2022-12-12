@@ -115,7 +115,7 @@ flutter:
   fonts:
     - family: Aubrey
       fonts:
-        - asset: assets/aubrey.ttf
+        - asset: assets/aubrey.TTF
     - family: Poppins
       fonts:
         - asset: assets/Poppins.ttf

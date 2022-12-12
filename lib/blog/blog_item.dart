@@ -3,7 +3,7 @@ import 'blog_detail_screen.dart';
 
 // custom widget untuk masing-masing post
 // untuk ditampilkan pada blogs_screen
-import 'package:nutrirobo/blog/models/blog.dart';
+// import 'package:nutrirobo/blog/models/blog.dart';
 
 class BlogItem extends StatelessWidget {
   final String title;

@@ -1,6 +1,6 @@
 // widget untuk menampilkan daftar post
 import 'package:flutter/material.dart';
-import 'package:nutrirobo/blog/models/blog.dart';
+// import 'package:nutrirobo/blog/models/blog.dart';
 
 import 'dummy_data.dart';
 import 'blog_item.dart';

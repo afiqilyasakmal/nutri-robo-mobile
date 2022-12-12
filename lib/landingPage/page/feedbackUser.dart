@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:provider/provider.dart';
+//import 'package:pbp_django_auth/pbp_django_auth.dart';
+//import 'package:provider/provider.dart';
 import '../util/fetchFeedbackUser.dart';
 import 'addFeedback.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +21,7 @@ class _FeedbackUserPageState extends State<FeedbackUserPage> {
   final String username;
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>();
+    //final request = context.watch<CookieRequest>();
     // The rest of your widgets are down below
     return Scaffold(
       appBar: AppBar(
@@ -103,6 +103,7 @@ class _FeedbackUserPageState extends State<FeedbackUserPage> {
                                   ),
                                   TextButton(
                                     onPressed: () async {
+                                      // ignore: unused_local_variable
                                       final response = await http.get(Uri.parse(
                                           "https://nutrirobo.up.railway.app/delete-task/${snapshot.data![index].pk}"));
                                     },
