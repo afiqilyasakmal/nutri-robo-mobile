@@ -76,18 +76,18 @@ class _MyTargetPageState extends State<MyTargetPage> {
           ),
           backgroundColor: Colors.white,
           //Text(widget.title),
-          actions: [
-            TextButton(
-              child: Text("Logout"),
-              style: TextButton.styleFrom(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                ),
-                //primary:
-              ),
-              onPressed: () {},
-            ),
-          ],
+          // actions: [
+          //   TextButton(
+          //     child: Text("Logout"),
+          //     style: TextButton.styleFrom(
+          //       textStyle: TextStyle(
+          //         fontSize: 20,
+          //       ),
+          //       //primary:
+          //     ),
+          //     onPressed: () {},
+          //   ),
+          // ],
         ),
         body: Center(
             child: ListView(

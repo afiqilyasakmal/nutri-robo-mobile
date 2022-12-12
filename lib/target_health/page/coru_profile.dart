@@ -318,7 +318,7 @@ class _CoruProfilePageState extends State<CoruProfilePage> {
                               ),
                             ),
                             ListTile(
-                              leading: const Icon(Icons.class_),
+                              leading: const Icon(Icons.people_alt_outlined),
                               title: const Text(
                                 'Role',
                               ),

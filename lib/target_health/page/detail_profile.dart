@@ -6,22 +6,12 @@ import 'package:nutrirobo/target_health/page/coru_profile.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
-//import 'package:pbp_django_auth/pbp_django_auth.dart';
-
 class DetailMyProfilePage extends StatefulWidget {
   final String username;
-  //final String name;
-  //final String  phone;
-  //final String email;
-  //final String role;
 
   DetailMyProfilePage({
     super.key,
     required this.username,
-    //required this.name,
-    ///required this.phone,
-    //required this.email,
-    //required this.role
   });
 
   @override
@@ -36,23 +26,10 @@ class _DetailMyProfileState extends State<DetailMyProfilePage> {
   late String phone;
   late String email;
   late String role;
-  //late Future<Profile> futureProfile;
-
-//  @override
-//   void initState() {
-//     super.initState();
-
-//     name = widget.name;
-//     urlImage = widget.urlImage;
-//     email = widget.email;
-//     futureProfile = fetchProfile(widget.username);
-//   }
 
   Future<List<Profile>> fetchProfile(String username) async {
     var url = Uri.parse(
-        // 'https://nutrirobo.up.railway.app/target_profile/accounts/detail/profile/json/');
         'https://nutrirobo.up.railway.app/target_profile/flutter/profile/$username');
-    // 'https://nutrirobo.up.railway.app/target_profile/flutter/target/$username');
     var response = await http.get(
       url,
       headers: {
@@ -96,17 +73,8 @@ class _DetailMyProfileState extends State<DetailMyProfilePage> {
         backgroundColor: Colors.white,
       ),
       body: FutureBuilder(
-          future: fetchProfile(username), //futureProfile,
-
+          future: fetchProfile(username),
           builder: (context, AsyncSnapshot snapshot) {
-            // switch (snapshot.connectionState) {
-            //   case ConnectionState.waiting:
-            //     return Center(
-            //       child: CircularProgressIndicator(),
-            //     );
-            //   default:
-            //     if (snapshot.hasError) {
-            //       return Text('Error: ${snapshot.error}');
             if (snapshot.data == null) {
               return const Padding(
                 padding: EdgeInsets.symmetric(vertical: 30.0),
@@ -189,28 +157,6 @@ class _DetailMyProfileState extends State<DetailMyProfilePage> {
                       ]),
                     ]),
                   ),
-                  // floatingActionButton:
-                  // Container(
-                  //     margin: const EdgeInsets.only(left: 35),
-                  //     child: ElevatedButton(
-                  //       // style: ElevatedButton.styleFrom(
-                  //       //   primary: Colors.blue,
-                  //       //   minimumSize: const Size.fromHeight(40),
-                  //       // ),
-                  //       onPressed: () {
-                  //         Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //                 builder: (context) => CoruProfilePage()
-                  //                 // EditProfile(
-                  //                 //     name: '${snapshot.data!.fields.name}',
-                  //                 //     email:
-                  //                 //         '${snapshot.data!.fields.email}'))
-                  //                 ));
-                  //         //Navigator.pop(context);
-                  //       },
-                  //       child: const Text('EDIT'),
-                  //     ))
                 ]);
               }
             }
@@ -221,7 +167,7 @@ class _DetailMyProfileState extends State<DetailMyProfilePage> {
               MaterialPageRoute(builder: (context) => const CoruProfilePage()));
         },
         label: const Text('Update Profile'),
-        icon: const Icon(Icons.add),
+        icon: const Icon(Icons.people_alt_outlined),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
