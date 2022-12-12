@@ -71,10 +71,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('Blog'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BlogsScreen()),
-              );
+             
             },
           ),
           ListTile(
