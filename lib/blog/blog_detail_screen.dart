@@ -34,7 +34,7 @@ class BlogDetailScreen extends StatelessWidget {
               "p": Style(
                 fontSize: FontSize.larger,
                 lineHeight: LineHeight.em(2),
-                margin: EdgeInsets.only(bottom: 2),
+                padding: EdgeInsets.only(bottom: 2),
               ),
             },
           ),
