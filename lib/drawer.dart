@@ -45,10 +45,18 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text("Tracker"),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyTrackerPage()),
-              );
+              if (_visibility) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignInPage()),
+                );
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MyTrackerPage()),
+                );
+              }
             },
           ),
           ListTile(
