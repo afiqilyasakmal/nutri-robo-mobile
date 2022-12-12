@@ -323,7 +323,7 @@ class _CoruProfilePageState extends State<CoruProfilePage> {
                                 'Role',
                               ),
                               trailing: DropdownButton(
-                                value: role,
+                                value: role.isNotEmpty ? role : null,
                                 icon: const Icon(Icons.keyboard_arrow_down),
                                 items: listRole.map((String items) {
                                   return DropdownMenuItem(
@@ -334,9 +334,9 @@ class _CoruProfilePageState extends State<CoruProfilePage> {
                                 onChanged: (String? newValue) {
                                   setState(() {
                                     if (newValue == "User") {
-                                      role = "1";
+                                      role = listRole[0];
                                     } else {
-                                      role = "2";
+                                      role = listRole[1];
                                     }
                                     // role = newValue!;
                                   });
