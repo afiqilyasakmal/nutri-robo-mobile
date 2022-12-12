@@ -67,6 +67,7 @@ class _MyfaqPageState extends State<MyfaqPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('FAQ'),
+        backgroundColor: Colors.white,
       ),
       body: FutureBuilder(
         future: fetchMyfaqData(),
@@ -85,41 +86,52 @@ class _MyfaqPageState extends State<MyfaqPage> {
                 ],
               );
             } else {
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
+              return Container(
+                color: Colors.white,
                 child: Column(
                   children: [
-                    SizedBox(height: 10),
                     TextField(
                       onChanged: (value) => _runFilter(value),
                       decoration: InputDecoration(
                         hintText: 'Search',
                         prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                        filled: true,
+                        fillColor: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10),
                     Expanded(
                       child: ListView.builder(
                           itemCount: listMyfaqDataFilter.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: ListTile(
-                                title: Text(
-                                    listMyfaqDataFilter[index].fields.question),
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MyfaqDetail(
-                                          myfaqData: listMyfaqDataFilter[index],
-                                        ),
-                                      ));
-                                },
-                              ),
+                            return Column(
+                              children: [
+                                ListTile(
+                                  title: Padding(
+                                    padding: const EdgeInsets.only(left: 16),
+                                    child: Text(listMyfaqDataFilter[index]
+                                        .fields
+                                        .question),
+                                  ),
+                                  tileColor: Colors.white,
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MyfaqDetail(
+                                            myfaqData:
+                                                listMyfaqDataFilter[index],
+                                          ),
+                                        ));
+                                  },
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 28, right: 28),
+                                  child: Divider(
+                                    thickness: 3,
+                                  ),
+                                ),
+                              ],
                             );
                           }),
                     ),

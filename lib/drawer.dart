@@ -5,7 +5,6 @@ import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 import 'package:nutrirobo/faq/page/faq_main_page.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:nutrirobo/blog/blogs_screen.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -61,10 +60,7 @@ class _MyDrawerState extends State<MyDrawer> {
           ListTile(
             title: const Text('Blog'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BlogsScreen()),
-              );
+             
             },
           ),
           ListTile(

@@ -13,34 +13,41 @@ class MyfaqDetail extends StatelessWidget {
     // Use the Todo to create the UI.
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('FAQ'),
       ),
       // drawer: MyDrawer(),
-      body: ListView(padding: new EdgeInsets.all(13.0), children: <Widget>[
-        Container(
-          child: Center(
-            child: Text(
-              myfaqData.fields.question,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+      body: Container(
+        color: Colors.white,
+        child: ListView(padding: new EdgeInsets.all(13.0), children: <Widget>[
+          Container(
+            child: Center(
+              child: Text(
+                myfaqData.fields.question,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
               ),
             ),
           ),
-        ),
-        Container(
-          child: Center(
-            child: Text(
-              myfaqData.fields.answer,
-              style: TextStyle(
-                fontSize: 20,
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            child: Center(
+              child: Text(
+                myfaqData.fields.answer,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
             ),
           ),
-        ),
-      
+        
 
-      ]),
+        ]),
+      ),
       
     );
   }
