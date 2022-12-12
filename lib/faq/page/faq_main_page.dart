@@ -66,8 +66,8 @@ class _MyfaqPageState extends State<MyfaqPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FAQ'),
         backgroundColor: Colors.white,
+        title: Text('FAQ'),
       ),
       body: FutureBuilder(
         future: fetchMyfaqData(),

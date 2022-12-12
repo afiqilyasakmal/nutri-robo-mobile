@@ -5,6 +5,8 @@ import 'package:nutrirobo/tracker/page/tracker_main_page.dart';
 import 'package:nutrirobo/faq/page/faq_main_page.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:nutrirobo/blog/blogs_screen.dart';
+import 'package:nutrirobo/target_health/page/main_target.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -52,8 +54,9 @@ class _MyDrawerState extends State<MyDrawer> {
             title: const Text("Target Health"),
             onTap: () {
               // Route menu ke halaman form
-              Navigator.pop(
+              Navigator.push(
                 context,
+                MaterialPageRoute(builder: (context) => const MyTargetPage()),
               );
             },
           ),
