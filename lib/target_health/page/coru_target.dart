@@ -197,7 +197,7 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                 'Gender',
                               ),
                               trailing: DropdownButton(
-                                value: gender,
+                                value: gender.isNotEmpty ? gender : null,
                                 icon: const Icon(Icons.keyboard_arrow_down),
                                 items: listGender.map((String items) {
                                   return DropdownMenuItem(
@@ -208,9 +208,9 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                 onChanged: (String? newValue) {
                                   setState(() {
                                     if (newValue == "Male") {
-                                      gender = "m";
+                                      gender = listGender[0];
                                     } else {
-                                      gender = "f";
+                                      gender = listGender[1];
                                     }
                                     // role = newValue!;
                                   });
