@@ -24,6 +24,10 @@ class BlogDetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
           child: Column(
         children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            child: Text("Published on " + createdAt, style: TextStyle(fontWeight: FontWeight.bold),),
+          ),
           Html(
             data: body,
             style: {
