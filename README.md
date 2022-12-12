@@ -1,4 +1,4 @@
-[![Staging](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml) [![Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml)
+[![Staging](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml) [![Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml) [![Pre-Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml)
 ## Link Tautan APK
 ## Anggota Kelompok
 Anindya Lokeswara - 2106633696 (Home) <br>
