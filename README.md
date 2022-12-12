@@ -1,6 +1,6 @@
 [![Staging](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml) [![Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml) [![Pre-Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml) [![Build status](https://build.appcenter.ms/v0.1/apps/0c325bf0-89ef-4044-a0b9-3249217f0574/branches/main/badge)](https://appcenter.ms)
 ## Link Tautan APK
-[Nutrirobo's app on Appcenter](install.appcenter.ms/orgs/a08-nutri-robo/apps/nutri-robo/distribution_groups/public)
+[Nutrirobo's app on Appcenter](https://install.appcenter.ms/orgs/a08-nutri-robo/apps/nutri-robo/distribution_groups/public)
 ## Anggota Kelompok 👥 
 - Anindya Lokeswara - 2106633696 (Home) <br>
 - Bimo Henokh Barata - 2106752395 (FAQ) <br>
