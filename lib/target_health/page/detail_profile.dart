@@ -54,6 +54,7 @@ class _DetailMyProfileState extends State<DetailMyProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
