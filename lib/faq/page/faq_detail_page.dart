@@ -13,6 +13,7 @@ class MyfaqDetail extends StatelessWidget {
     // Use the Todo to create the UI.
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('FAQ'),
       ),
       // drawer: MyDrawer(),
@@ -38,10 +39,7 @@ class MyfaqDetail extends StatelessWidget {
             ),
           ),
         ),
-      
-
       ]),
-      
     );
   }
 }
