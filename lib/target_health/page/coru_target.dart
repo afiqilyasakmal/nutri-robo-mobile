@@ -85,8 +85,7 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                 decoration: InputDecoration(
                                   hintText: "Example: 55",
                                   labelText: "Weight",
-                                  // Menambahkan icon agar lebih intuitif
-                                  icon: const Icon(Icons.people),
+
                                   // Menambahkan circular border agar lebih rapi
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(5.0),
@@ -126,8 +125,7 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                 decoration: InputDecoration(
                                   hintText: "Example: 170",
                                   labelText: "Height",
-                                  // Menambahkan icon agar lebih intuitif
-                                  icon: const Icon(Icons.local_phone),
+
                                   // Menambahkan circular border agar lebih rapi
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(5.0),
@@ -167,8 +165,7 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                 decoration: InputDecoration(
                                   hintText: "Example: 20",
                                   labelText: "Age",
-                                  // Menambahkan icon agar lebih intuitif
-                                  icon: const Icon(Icons.email_outlined),
+
                                   // Menambahkan circular border agar lebih rapi
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(5.0),
@@ -196,7 +193,6 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                               ),
                             ),
                             ListTile(
-                              leading: const Icon(Icons.class_),
                               title: const Text(
                                 'Gender',
                               ),
@@ -234,8 +230,6 @@ class _CoruTargetPageState extends State<CoruTargetPage> {
                                     final response = await request.post(
                                         "https://nutrirobo.up.railway.app/target_profile/flutter/update/target/",
                                         {
-                                          // "name": name,
-                                          // "phone": phone,
                                           "weight": weight,
                                           "height": height,
                                           "gender": gender,

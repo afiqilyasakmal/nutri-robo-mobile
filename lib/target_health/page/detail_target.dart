@@ -8,28 +8,10 @@ import 'package:provider/provider.dart';
 
 class DetailMyTargetPage extends StatefulWidget {
   final String username;
-  //final String weight;
-  //final String height;
-  //final String age;
-  //final String gender;
-  //final String calories;
-  //final String water;
-  //final String exercise;
-  //final String sleep;
-  //final String role;
 
   DetailMyTargetPage({
     super.key,
     required this.username,
-    // required this.weight,
-    // required this.height,
-    // required this.age,
-    // this.gender,
-    // this.calories,
-    // this.water,
-    // this.exercise,
-    // this.sleep,
-    // this.role
   });
 
   @override
@@ -53,7 +35,6 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
 
   Future<List<PhysicalInfo>> fetchTarget(String username) async {
     var url = Uri.parse(
-        //'https://nutrirobo.up.railway.app/target_profile/accounts/detail/target/json/');
         'https://nutrirobo.up.railway.app/target_profile/flutter/target/$username');
     var response = await http.get(
       url,
@@ -98,24 +79,8 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
         backgroundColor: Colors.white,
       ),
       body: FutureBuilder(
-          future: fetchTarget(username), //futureProfile,
+          future: fetchTarget(username),
           builder: (context, AsyncSnapshot snapshot) {
-            // switch (snapshot.connectionState) {
-            //   case ConnectionState.waiting:
-            //     return Center(
-            //       child: CircularProgressIndicator(),
-            //     );
-            //   default:
-            //     if (snapshot.hasError) {
-            //       return Text('Error: ${snapshot.error}');
-            //     } else {
-            //                   return targetView();
-            //                 }
-            //             }
-            //           }));
-            // }
-
-            // Widget targetView() {
             if (snapshot.data == null) {
               return const Padding(
                 padding: EdgeInsets.symmetric(vertical: 30.0),
@@ -158,11 +123,6 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
                               fontSize: 20,
                             ),
                           ),
-                          // if (snapshot.data!.fields.role == "2") Text("   "),
-                          // Icon(
-                          //   Icons.verified_outlined,
-                          //   color: Colors.blue[800],
-                          // )
                         ])),
                       ])),
                   const SizedBox(height: 20),
@@ -342,27 +302,6 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
                                 width: 1.0, color: Colors.indigo.shade600)),
                       )),
                   const SizedBox(height: 16),
-                  // Container(
-                  //     margin: const EdgeInsets.only(left: 35),
-                  //     child: ElevatedButton(
-                  //       // style: ElevatedButton.styleFrom(
-                  //       //   primary: Colors.blue,
-                  //       //   minimumSize: const Size.fromHeight(40),
-                  //       // ),
-                  //       onPressed: () {
-                  //         Navigator.push(
-                  //             context,
-                  //             MaterialPageRoute(
-                  //                 builder: (context) => CoruTargetPage())
-                  //             //Profile(
-                  //             //     name: '${snapshot.data!.fields.name}',
-                  //             //     email:
-                  //             //         '${snapshot.data!.fields.email}'))
-                  //             );
-                  //         //Navigator.pop(context);
-                  //       },
-                  //       child: const Text('EDIT'),
-                  //     ))
                 ]);
               }
             }
@@ -373,7 +312,7 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
               MaterialPageRoute(builder: (context) => const CoruTargetPage()));
         },
         label: const Text('Update Target Health'),
-        icon: const Icon(Icons.add),
+        icon: const Icon(Icons.health_and_safety_outlined),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
