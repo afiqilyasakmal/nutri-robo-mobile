@@ -1,3 +1,4 @@
+[![Staging](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml)
 ## Link Tautan APK
 ## Anggota Kelompok
 Anindya Lokeswara - 2106633696 (Home) <br>
