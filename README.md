@@ -1,62 +1,64 @@
 [![Staging](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/staging.yml) [![Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/release.yml) [![Pre-Release](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml/badge.svg)](https://github.com/afiqilyasakmal/nutri-robo-mobile/actions/workflows/pre-release.yml) [![Build status](https://build.appcenter.ms/v0.1/apps/0c325bf0-89ef-4044-a0b9-3249217f0574/branches/main/badge)](https://appcenter.ms)
 ## Link Tautan APK
-## Anggota Kelompok
-Anindya Lokeswara - 2106633696 (Home) <br>
-Bimo Henokh Barata - 2106752395 (FAQ) <br>
-Afiq Ilyasa Akmal - 2106751291 (Blog) <br>
-Eldira Lahanny Permata Sherman - 2106640360 (Target Health) <br>
-Kathleen Daniella Wijaya - 2106637366 (Tracker) <br>
-## Tentang nutri-robo
-Nutri-robo merupakan aplikasi yang dibuat dengan tujuan untuk mengusung tema Global Health. Secara garis besar, nutri-robo merupakan sebuah aplikasi yang akan membantu penggunanya untuk meningkatkan kualitas kesehatan masyarakat global dengan cara pemenuhan kebutuhan gizi, olahraga, dan waktu tidur. Nutri-robo akan memberikan suatu target yang sesuai dengan data diri masing-masing pengguna dan target ini perlu dipenuhi agar dapat mencapai kehidupan yang lebih sehat. Tidak berhenti sampai di situ saja, nutri-robo juga akan memberikan rekomendasi terkait makanan, olahraga, dan waktu tidur serta memberikan daily motivation dan feedback bagi pengguna untuk mempertahankan kebiasaan yang sudah baik dan meningkatkan kebiasaan yang masih bisa ditingkatkan. <br>
+[Nutrirobo's app on Appcenter](install.appcenter.ms/orgs/a08-nutri-robo/apps/nutri-robo/distribution_groups/public)
+## Anggota Kelompok 👥 
+- Anindya Lokeswara - 2106633696 (Home) <br>
+- Bimo Henokh Barata - 2106752395 (FAQ) <br>
+- Afiq Ilyasa Akmal - 2106751291 (Blog) <br>
+- Eldira Lahanny Permata Sherman - 2106640360 (Target Health) <br>
+- Kathleen Daniella Wijaya - 2106637366 (Tracker) <br>
 
-### Beberapa alasan kelompok kami memutuskan untuk membuat aplikasi nutri-robo antara lain adalah:
+## About Nutri-Robo 🩺
+*In order to help the world, you must help yourself first.* <br>
 
-Stunting <br>
-Terdapat banyak femomena stunting atau gagal tumbuh karena kekurangan gizi di Indonesia. Permasalahan stunting merupakan masalah yang serius karena dapat berdampak pada kualitas Sumber Daya Manusia (SDM). Dampak jangka pendeknya antara lain adalah terganggunya perkembangan otak yang dapat mempengaruhi kecerdasan serta gangguan pertumbuhan fisik dan metabolisme dalam tubuh. Dampak jangka panjang stunting adalah kemampuan kognitif, prestasi belajar, dan sistem kekebalan tubuh menurun, berisiko tinggi untuk terkena penyakit diabetes, jantung, kanker, stroke, dan disabilitas pada usia tua. <br>
+Nutri-robo merupakan aplikasi yang dibuat dengan tujuan untuk mengusung tema **Global Health**. Secara garis besar, nutri-robo merupakan sebuah aplikasi yang akan membantu penggunanya dalam meningkatkan kualitas kesehatan masyarakat global dengan cara pemenuhan kebutuhan gizi, air, olahraga, dan waktu tidur.<br>
 
-Obesitas <br>
-Selain masalah stunting, angka obesitas di Indonesia juga cukup tinggi. Data Riskesdas 2018 menunjukkan bahwa 21,8% masyarakat Indonesia mengalami obesitas. Angka ini cukup tinggi jika dibandingkan dengan negara lain. Jika stunting lebih banyak dialami oleh anak-anak dan balita, masalah kelebihan berat badan (obesitas) justru lebih dominan dialami oleh populasi dewasa. Obesitas berisiko 2 kali lipat mengakibatkan terjadinya serangan jantung koroner, stroke, diabetes melitus, dan hipertensi, serta berisiko 3 kali lipat terkena batu empedu. <br>
+## How Nutri-Robo Works 📥
+Nutri-robo akan memberikan suatu target yang sesuai dengan data diri masing-masing pengguna. Target ini perlu dipenuhi agar dapat mencapai kehidupan yang lebih sehat. Untuk memantau proses pencapaian target, nutri-robo menawarkan fitur tracker. Tidak berhenti sampai di situ saja, nutri-robo juga akan memberikan informasi terkait kesehatan yang akan memberikan motivasi bagi pengguna untuk menjalani pola hidup yang sehat.<br>
 
-Dehidrasi <br>
-Berdasarkan studi terkini, 46,1% masyarakat Indonesia mengalami dehidrasi ringan. Angka ini sangatlah tinggi sehingga membutuhkan perhatian khusus agar dapat segera ditangani. Saat tubuh tidak mendapatkan air yang cukup, maka seseorang dapat mengalami dehidrasi yang dapat membuat tekanan darah rendah, mual dan muntah, sembelit, sakit kepala, stroke, tidak bertenaga, kulit kering, serta penyakit batu ginjal dan infeksi saluran kencing. <br>
+## Why Nutri-Robo 📝
+Berikut ini adalah beberapa masalah kesehatan dengan kasus yang tinggi di Indonesia: <br>
+- Stunting yang dapat berdampak pada kualitas Sumber Daya Manusia (SDM) <br>
+- Obesitas yang meningkatkan resiko terjadinya berbagai penyakit sebanyak 2-3 kali lipat <br>
+- Dehidrasi yang dapat membuat tekanan darah rendah, sembelit, stroke, kulit kering, dan lain sebagainya. <br>
+- Insomnia yang menyebabkan penderitanya sulit tidur sehingga tidak mendapatkan waktu tidur yang cukup. <br>
 
-Insomnia <br>
-Insomnia merupakan gangguan yang menyebabkan penderitanya sulit tidur sehingga tidak mendapatkan waktu tidur yang cukup. Di Indonesia sendiri, CNN Indonesia menyatakan bahwa penderita insomnia diperkirakan mencapai 10%, yang artinya dari total 238 juta penduduk indonesia, sekitar 23 juta jiwa menderita insomnia. Gangguan ini dapat menyebabkan stroke, penyakit jantung, tekanan darah tinggi, obesitas, penurunan sistem kekebalan tubuh, bahkan gangguan kesehatan mental. <br>
+Oleh karena itu, agar tubuh tetap sehat dan terhindar dari berbagai penyakit kronis atau penyakit tidak menular, maka pola hidup masyarakat perlu ditingkatkan ke arah yang lebih sehat dengan konsumsi gizi seimbang serta tidur dan olahraga yang cukup. Dengan demikian, kami berharap dengan adanya aplikasi nutri-robo, kami dapat membantu peningkatan kualitas hidup masyarakat global dengan menjadi asisten kesehatan pribadi yang bersifat interaktif dan tidak membosankan. <br>
 
-Oleh karena itu, agar tubuh tetap sehat dan terhindar dari berbagai penyakit kronis atau penyakit tidak menular, maka pola hidup masyarakat perlu ditingkatkan ke arah yang lebih sehat dengan konsumsi gizi seimbang serta tidur dan olahraga yang cukup. Dengan demikian, kami berharap dengan adanya aplikasi nutri-robo, kami dapat membantu peningkatan kualitas hidup masyarakat global dengan cara memberi motivasi dan pemahaman mengenai pentingnya pemenuhan gizi dan tidur per hari, serta menjadi asisten kesehatan secara pribadi yang bersifat interaktif dan tidak membosankan. <br>
+## Persona 🧑‍💻
+1. Pengguna <br>
+- Dapat mengakses akun dan menggunakan fitur-fitur yang tersedia bagi pengguna <br>
+- Terbagi menjadi dua yaitu, user dan instruktur. Kedua role ini dibedakan dengan adanya simbol verifikasi di sebelah nama instruktur. Selain itu, instruktur memiliki akses untuk mengunggah sebuah artikel dalam modul blog, sementara user hanya memiliki akses untuk mengomentari artikel <br>
 
-### Persona
-Pengguna <br>
-Mengakses akun dan menggunakan fitur-fitur yang tersedia bagi pengguna. <br>
-Role ini terbagi menjadi dua yaitu, user dan instruktur. Kedua role ini dibedakan dengan adanya simbol verifikasi di sebelah nama instruktur. Selain itu, instruktur memiliki akses untuk mengunggah sebuah artikel dalam modul blog, sementara user hanya boleh mengomentari artikel. <br>
+2. Admin <br>
+- Melakukan authorization dan authentication pengguna <br>
+- Menjadi pengawas kegiatan pada aplikasi nutri-robo <br>
+- Melakukan interaksi dengan pengguna seperti memberikan feedback dan mengunggah artikel di modul blog <br>
 
-Admin <br>
-Melakukan authorization dan authentication pengguna, menjadi pengawas kegiatan pada aplikasi nutri-robo, melakukan interaksi dengan pengguna seperti memberikan feedback dan mengunggah artikel di modul blog. <br>
+## Daftar Modul 📲
+#### 1. Home (landing page) 👋
+- Sambutan bagi pengguna pada aplikasi nutri-robo <br>
+- Perkenalan nutri-robo secara singkat <br>
+- Navigation bar ke menu-menu lain yang tersedia pada aplikasi nutri-robo <br>
+- Feedback user pada nutri-robo <br>
 
-### Daftar Modul
-#### Home (landing page) 
-Sambutan bagi pengguna pada aplikasi nutri-robo <br>
-Latar belakang dibuatnya nutri-robo secara singkat <br>
-Navigation bar ke menu-menu lain yang tersedia pada aplikasi nutri-robo <br>
-Feedback user pada nutri-robo <br>
+#### 2. Profile 👤
+- Data diri pengguna <br>
+- Kebutuhan kalori, air, olahraga, dan waktu tidur untuk setiap pengguna berdasarkan data pengguna (target yang harus dicapai untuk mencapai pola hidup yang sehat) <br>
 
-#### Profile
-Data diri pengguna <br>
-Kebutuhan kalori, air, olahraga, dan waktu tidur untuk setiap pengguna berdasarkan data pengguna (target yang harus dicapai untuk mencapai kehidupan yang sehat) <br>
+#### 3. Tracker 🛣️
+- Tracker untuk mencatat konsumsi pengguna baik makanan maupun minuman, aktivitas pengguna, serta waktu tidur pengguna <br>
+- Feedback bagi pengguna agar dapat mempertahankan kebiasaan yang sudah baik dan meningkatkan kebiasaan yang masih kurang baik <br>
 
-#### Tracker
-Tracker untuk mencatat konsumsi pengguna baik makanan maupun minuman, apakah pengguna olahraga atau tidak, serta waktu tidur pengguna <br>
-Feedback bagi pengguna agar dapat mempertahankan kebiasaan yang sudah baik dan meningkatkan kebiasaan yang masih kurang sehingga dapat mencapai kehidupan yang lebih sehat lagi <br>
+#### 4. Blog 🖥️
+- Widget untuk daily motivation bagi pengguna <br>
+- Tips-tips kesehatan yang dapat diunggah oleh admin dan instruktur dan dapat dikomentari oleh user <br>
+- Berita terbaru terkait kesehatan <br>
 
-#### Blog
-Widget untuk daily motivation bagi pengguna <br>
-Tips-tips kesehatan yang dapat diunggah oleh admin dan instruktur dan dapat dikomentari oleh user <br>
-Berita terbaru terkait kesehatan <br>
+#### 5. FAQ ❓
+- Jawaban dari pertanyaan yang sering ditanyakan oleh pengguna <br>
 
-#### FAQ
-Jawaban dari pertanyaan yang sering ditanyakan oleh pengguna <br>
-
-### Alur Pengintegrasian dengan Web Service <br>
+## Alur Pengintegrasian dengan Web Service 💻
 1. Menambahkan dependency `http` ke proyek untuk bertukar data melalui HTTP request <br>
 2. Membuat model sesuai dengan respons dari data yang berasal dari web service <br>
 3. Melakukan pengambilan data pada suatu web service dengan menggunakan dependensi http get <br>
