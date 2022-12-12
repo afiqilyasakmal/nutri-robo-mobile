@@ -71,7 +71,7 @@ class _DetailMyTargetState extends State<DetailMyTargetPage> {
         ),
         title: Row(
           children: [
-            const Text("Target Helath"),
+            const Text("Target Health"),
             const Text("   "),
             Icon(Icons.health_and_safety_outlined),
           ],
